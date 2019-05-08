@@ -5,5 +5,10 @@ def all_products
   render 'all_products.json.jbuilder'
 end
 
+def tube_man
+  @product = Product.first
+  render 'tube_man.json.jbuilder'
+end
+
 
 end
