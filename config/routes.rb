@@ -8,7 +8,22 @@ Rails.application.routes.draw do
 
     get "/fog_machine_url" => "products#fog_machine"
 
-    get "/tube_man_url" => "products#tube_man"
+    get "/tube_man_url" => "products#single_product"
+
+  
+    get "/any_product" => "products#single_product"
+
+    get "/any_product/:id" => "products#single_product"
+
+    get "/products" => "products#index"
+
+    get "/products/:id" => "products#show"
+
+    post "/product" => "products#create"
+
+    patch "/products/:id" => "products#update"
+
+
 
   end
 
