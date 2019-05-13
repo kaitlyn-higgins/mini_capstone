@@ -7,4 +7,5 @@ json.name @product.name
 json.extra_info do
   json.discount @product.is_discounted?
   json.tax @product.tax
+  json.total @product.total
 end
