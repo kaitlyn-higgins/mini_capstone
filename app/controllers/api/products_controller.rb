@@ -1,20 +1,5 @@
 class Api::ProductsController < ApplicationController
 
-  def all_products
-    @products = Product.all
-    render 'all_products.json.jbuilder'
-  end
-
-  def single_product
-    request = params[:id]
-    @product = Product.find_by(id: request)
-    render 'tube_man.json.jbuilder'
-  end
-
-  def any_product
-
-    render "any_product.json.jbuilder"
-  end
 
   def index
     @products = Product.all
@@ -45,7 +30,32 @@ class Api::ProductsController < ApplicationController
     @product.price = params[:price] || @product.price
     @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
+    @product.save
     render 'show.json.jbuilder'
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    render json: {message: "Product successfully destroyed."}
+  end
+
 end
+
+
+
+  # def all_products
+  #   @products = Product.all
+  #   render 'all_products.json.jbuilder'
+  # end
+
+  # def single_product
+  #   request = params[:id]
+  #   @product = Product.find_by(id: request)
+  #   render 'tube_man.json.jbuilder'
+  # end
+
+  # def any_product
+
+  #   render "any_product.json.jbuilder"
+  # end
