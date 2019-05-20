@@ -1,8 +1,26 @@
 class Api::ProductsController < ApplicationController
 
+  before_action :authenticate_user
 
   def index
-    @products = Product.all
+    @products = Product.all.order(:id)
+
+        if params[:search]
+          @products = @products.where("name iLIKE ?", "%#{params[:search]}%")
+        end
+
+        if params[:discount]
+          @products = @products.where("price < ?", 10)
+        end
+
+        if params[:sort] == "price"
+          if params[:sort_order] == "desc"
+            @products = @products.order(price: :desc)
+          else
+            @products = @products.order(:price)
+          end
+        end
+
     render 'index.json.jbuilder'
   end
 
@@ -15,12 +33,14 @@ class Api::ProductsController < ApplicationController
     @product = Product.new(
     name: params[:name],
     price: params[:price],
-    image_url: params[:image_url],
     description: params[:description],
-    )
-    @product.save
-
-    render 'show.json.jbuilder'
+    stock_status: params[:stock_status],
+    supplier_id: params[:supplier_id]
+     )
+    if @product.save
+      render 'show.json.jbuilder'
+    else render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -28,10 +48,14 @@ class Api::ProductsController < ApplicationController
 
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
-    @product.save
-    render 'show.json.jbuilder'
+    @product.stock_status = params[:stock_status] || @product.stock_status
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
+
+    if @product.save
+      render 'show.json.jbuilder'
+    else render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
