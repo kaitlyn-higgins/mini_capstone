@@ -4,7 +4,7 @@
   json.description product.description
   json.stock_status product.stock_status
   json.supplier_name product.supplier.name
-  json.current_user product.current_user
+  # json.current_user product.current_user
 
   json.extra_info do
     json.discount product.is_discounted?
