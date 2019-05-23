@@ -4,6 +4,7 @@
   json.description product.description
   json.stock_status product.stock_status
   json.supplier_name product.supplier.name
+  json.category_names product.category_names
   # json.current_user product.current_user
 
   json.extra_info do
