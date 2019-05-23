@@ -1,5 +1,6 @@
 User.create!([
-  {name: "Kaitlyn", email: "kaitlyn@gmail.com", password_digest: "$2a$10$PYuGLs/hNtMc8RKLltfAk.W7Ul/B8cWiaKFF5zJwecdhUfb49kigO"}
+  {name: "Shane", email: "shane@gmail.com", password_digest: "$2a$10$kVUQ5Rcss9jb7HjNIXKDRe0FxtV5WvBo5MSzoxGGS1fvvWysTGJ2a", admin: false},
+  {name: "Kaitlyn", email: "kaitlyn@gmail.com", password_digest: "$2a$10$PYuGLs/hNtMc8RKLltfAk.W7Ul/B8cWiaKFF5zJwecdhUfb49kigO", admin: true}
 ])
 Supplier.create!([
   {name: "Void", email: "voidSales@voidsound.com", phone_number: "3125489632"},
@@ -21,5 +22,13 @@ Product.create!([
 ])
 Order.create!([
   {quantity: 2, product_id: 1, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 2, subtotal: nil, tax: nil, total: nil, user_id: 1}
+  {quantity: 1, product_id: 2, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 2},
+  {quantity: 3, product_id: 6, subtotal: "3600.0", tax: "324.0", total: "3924.0", user_id: 2}
 ])
