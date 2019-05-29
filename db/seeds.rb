@@ -3,7 +3,6 @@ Supplier.create!([
   {name: "Mercury Supplies", email: "Sales@mercury.com", phone_number: "3129624815"},
   {name: "Tubular", email: "sales@tubular.com", phone_number: "3127889423"}
 ])
-
 Category.create!([
   {name: "Sound"},
   {name: "Lights & Effects"},
@@ -11,7 +10,6 @@ Category.create!([
   {name: "Activities & Entertainment"},
   {name: "Food & Beverage"}
 ])
-
 Product.create!([
   {name: "Wacky Waving Arm Flailing Inflatable Tube Man", price: "300.0", description: "The life of the party could be all yours! Watch him (or her) dance and flail about, boggling the mind of all of your guests, and initiating a super liquidy dance party. Powered by fans and music.", stock_status: true, supplier_id: 3},
   {name: "Up In Smoke Fog Machine", price: "67.0", description: "Premium fog machine will fill your dance floor with a thick fog, creating a spooky ambiance. Product requires fog juice.", stock_status: true, supplier_id: 2},
@@ -24,7 +22,9 @@ Product.create!([
   {name: "Baloons", price: "3.0", description: "They're stretchy, they're colorful, they're balloons!", stock_status: true, supplier_id: 3},
   {name: "Bean Bag Launcher", price: "30.0", description: "Use with caution", stock_status: true, supplier_id: 3},
   {name: "Party Streamer", price: "3.0", description: "Brighten up your event space", stock_status: true, supplier_id: 2},
-  {name: "Bongo Drums", price: "42.0", description: "Bango bongo boingo", stock_status: true, supplier_id: 2}
+  {name: "Bongo Drums", price: "42.0", description: "Bango bongo boingo", stock_status: true, supplier_id: 2},
+  {name: "Beach Ball", price: "5.0", description: "When the crowd gets roaring, start chucking beach balls at them!", stock_status: true, supplier_id: 3},
+  {name: "DJ Booth Facade", price: "250.0", description: "Metal DJ booth facade with projector friendly scrum panels", stock_status: true, supplier_id: 1}
 ])
 
 Image.create!([
@@ -56,7 +56,10 @@ Image.create!([
   {url: "https://starfisheducation.com.au/wp-content/uploads/2016/06/DSC_5828.jpg", product_id: 10},
   {url: "https://images-na.ssl-images-amazon.com/images/I/81ip1cgkZNL._SL1500_.jpg", product_id: 11},
   {url: "https://images-na.ssl-images-amazon.com/images/I/61lRrOX456L._SX425_.jpg", product_id: 11},
-  {url: "https://ae01.alicdn.com/kf/HTB120eFSpXXXXaSXVXXq6xXFXXX9/GiveU-10rolls-lot-Total-250m-Crepe-Paper-Streamer-Wedding-Birthday-Party-Babyshower-Background-Decoration-Party-Streamers.jpg_640x640.jpg", product_id: 11}
+  {url: "https://ae01.alicdn.com/kf/HTB120eFSpXXXXaSXVXXq6xXFXXX9/GiveU-10rolls-lot-Total-250m-Crepe-Paper-Streamer-Wedding-Birthday-Party-Babyshower-Background-Decoration-Party-Streamers.jpg_640x640.jpg", product_id: 11},
+  {url: "https://static1.squarespace.com/static/5a6cf01f692ebebca8c535d7/5a74bb7ee4966b1d1b7091bb/5a776bd8085229a61675d749/1520078080551/Crowd-Beachballs.jpg?format=750w", product_id: 13},
+  {url: "https://previews.123rf.com/images/hyrons/hyrons1209/hyrons120900009/15099097-two-bongo-drums-isolated-on-white.jpg", product_id: 12},
+  {url: "https://i.ytimg.com/vi/EKaCAi6C8JE/maxresdefault.jpg", product_id: 14}
 ])
 User.create!([
   {name: "Shane", email: "shane@gmail.com", password_digest: "$2a$10$kVUQ5Rcss9jb7HjNIXKDRe0FxtV5WvBo5MSzoxGGS1fvvWysTGJ2a", admin: false},
@@ -91,6 +94,7 @@ ProductCategory.create!([
   {product_id: 10, category_id: 4},
   {product_id: 5, category_id: 5}
 ])
+
 
 CartedProduct.create!([
   {user_id: 1, product_id: 2, quantity: 2, status: "carted", order_id: nil},
