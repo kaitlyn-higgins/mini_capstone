@@ -1,0 +1,14 @@
+<h1> Product </h1>
+
+  <h2> Name <%= @product.name %></h2>
+  <h3> Id <%= @product.id %></h3>
+  <h3> Price <%= @product.price %></h3>
+  <h3> Description <%= @product.description %></h3>
+  <h3> In Stock <%= @product.stock_status %></h3>
+  <h4> Supplier Name <%= @product.supplier.name %></h4>
+  <h4> Categories <%= @product.category_names %></h4>
+  <img src="<%= @product.images.first.url%>">
+  <a href="/products">Back To All Recipes</a>
+
+  
+
