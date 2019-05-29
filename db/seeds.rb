@@ -3,6 +3,7 @@ Supplier.create!([
   {name: "Mercury Supplies", email: "Sales@mercury.com", phone_number: "3129624815"},
   {name: "Tubular", email: "sales@tubular.com", phone_number: "3127889423"}
 ])
+
 Category.create!([
   {name: "Sound"},
   {name: "Lights & Effects"},
@@ -10,6 +11,7 @@ Category.create!([
   {name: "Activities & Entertainment"},
   {name: "Food & Beverage"}
 ])
+
 Product.create!([
   {name: "Wacky Waving Arm Flailing Inflatable Tube Man", price: "300.0", description: "The life of the party could be all yours! Watch him (or her) dance and flail about, boggling the mind of all of your guests, and initiating a super liquidy dance party. Powered by fans and music.", stock_status: true, supplier_id: 3},
   {name: "Up In Smoke Fog Machine", price: "67.0", description: "Premium fog machine will fill your dance floor with a thick fog, creating a spooky ambiance. Product requires fog juice.", stock_status: true, supplier_id: 2},
@@ -21,8 +23,10 @@ Product.create!([
   {name: "Speaker Stand", price: "45.0", description: "Keep your speakers secure!", stock_status: true, supplier_id: 1},
   {name: "Baloons", price: "3.0", description: "They're stretchy, they're colorful, they're balloons!", stock_status: true, supplier_id: 3},
   {name: "Bean Bag Launcher", price: "30.0", description: "Use with caution", stock_status: true, supplier_id: 3},
-  {name: "Party Streamer", price: "3.0", description: "Brighten up your event space", stock_status: true, supplier_id: 2}
+  {name: "Party Streamer", price: "3.0", description: "Brighten up your event space", stock_status: true, supplier_id: 2},
+  {name: "Bongo Drums", price: "42.0", description: "Bango bongo boingo", stock_status: true, supplier_id: 2}
 ])
+
 Image.create!([
   {url: "https://sc02.alicdn.com/kf/HTB1zR3Ng3oQMeJjy0Foq6AShVXaK/200571711/HTB1zR3Ng3oQMeJjy0Foq6AShVXaK.jpg", product_id: 1},
   {url: "https://media.giphy.com/media/fhA7UQ25NiFgs/giphy.gif", product_id: 1},
@@ -59,17 +63,18 @@ User.create!([
   {name: "Kaitlyn", email: "kaitlyn@gmail.com", password_digest: "$2a$10$PYuGLs/hNtMc8RKLltfAk.W7Ul/B8cWiaKFF5zJwecdhUfb49kigO", admin: true}
 ])
 Order.create!([
-  {quantity: 2, product_id: 1, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 2, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 1},
-  {quantity: 1, product_id: 3, subtotal: nil, tax: nil, total: nil, user_id: 2},
-  {quantity: 3, product_id: 6, subtotal: "3600.0", tax: "324.0", total: "3924.0", user_id: 2}
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 1},
+  {subtotal: nil, tax: nil, total: nil, user_id: 2},
+  {subtotal: "3600.0", tax: "324.0", total: "3924.0", user_id: 2}
 ])
+
 ProductCategory.create!([
   {product_id: 6, category_id: 1},
   {product_id: 7, category_id: 1},
@@ -87,3 +92,9 @@ ProductCategory.create!([
   {product_id: 5, category_id: 5}
 ])
 
+CartedProduct.create!([
+  {user_id: 1, product_id: 2, quantity: 2, status: "carted", order_id: nil},
+  {user_id: 1, product_id: 6, quantity: 8, status: "carted", order_id: nil},
+  {user_id: 2, product_id: 8, quantity: 3, status: "carted", order_id: nil},
+  {user_id: 1, product_id: 1, quantity: 2, status: "removed", order_id: nil}
+])
