@@ -20,11 +20,12 @@ class ProductsController < ApplicationController
     price: params[:price],
     description: params[:description],
     stock_status: params[:stock_status],
-    supplier_id: params[:supplier_id],
     supplier_id: params[:supplier_id]
+    # category_id: params[:category_id]
      )
     @product.save
-      redirect_to "/products/#{@product.id}"
+      redirect_to "/images/new"
+      #redirect_to "/products/#{@product.id}"
   end
 
 end
