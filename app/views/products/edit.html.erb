@@ -1,0 +1,34 @@
+<h1>Edit Your Product Here</h1>
+
+  <form action="/products/<%= @product.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+
+  <div>
+    Name: <input type="text" name="name" value=<%= @product.name =%>>
+  </div>
+  <div>
+    Price: <input type="number" name="price"value=<%= @product.price =%>>
+  </div>
+  <div>
+    Description: <input type="text" name="description" value="<%= @product.description =%>">
+  </div>
+  <div>
+    In Stock?: <input type="text" name="stock_status" value="<%= @product.stock_status =%>">
+  </div>
+  <div>
+    Category Id: <input type="text" name="category.id" value="<%= @product.category_ids =%>">
+  </div>
+  <div>
+    <label for="supplier-select">Choose a supplier:</label>
+    <select name="supplier_id" id="supplier-select">
+      <option value="">--Please choose an option--</option>
+      <% Supplier.all.each do |supplier| %>
+          <option value="<%= supplier.id %>"><%= supplier.name %></option>
+      <% end %>
+      
+    </select>
+  </div>
+
+  <input type="submit" value="Edit Product">
+
+</form>
